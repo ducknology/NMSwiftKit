@@ -9,8 +9,8 @@
 import UIKit
 
 public extension String {
-    var attributed: NSAttributedString {
-        return NSAttributedString(string: self)
+    var mutableAttributed: NSMutableAttributedString {
+        return NSMutableAttributedString(string: self)
     }
     
     var nsRange: NSRange {
@@ -39,13 +39,18 @@ public extension NSMutableAttributedString {
         self.addAttributes(attributes, range: self.string.nsRange)
         return self
     }
+    
+    @discardableResult public func appending(_ attrString: NSAttributedString) -> NSMutableAttributedString {
+        self.append(attrString)
+        return self
+    }
 }
 
 public enum StringAttribute {
     case font(UIFont)
     case textColor(UIColor)
     
-    public  var attribute: [NSAttributedStringKey: Any] {
+    public var attribute: [NSAttributedStringKey: Any] {
         switch self {
         case let .font(font):
             return [NSAttributedStringKey.font: font]
