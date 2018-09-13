@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension String {
+public extension String {
     var attributed: NSAttributedString {
         return NSAttributedString(string: self)
     }
@@ -18,13 +18,13 @@ extension String {
     }
 }
 
-extension NSAttributedString {
+public extension NSAttributedString {
     var mutable: NSMutableAttributedString {
         return NSMutableAttributedString(attributedString: self)
     }
 }
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     @discardableResult func applyFont(_ font: UIFont) -> NSMutableAttributedString {
         self.applyAttributes(StringAttribute.font(font).attribute)
         return self
@@ -41,7 +41,7 @@ extension NSMutableAttributedString {
     }
 }
 
-enum StringAttribute {
+public enum StringAttribute {
     case font(UIFont)
     case textColor(UIColor)
     
