@@ -19,23 +19,23 @@ public extension String {
 }
 
 public extension NSAttributedString {
-    var mutable: NSMutableAttributedString {
+    public var mutable: NSMutableAttributedString {
         return NSMutableAttributedString(attributedString: self)
     }
 }
 
 public extension NSMutableAttributedString {
-    @discardableResult func applyFont(_ font: UIFont) -> NSMutableAttributedString {
+    @discardableResult public func applyFont(_ font: UIFont) -> NSMutableAttributedString {
         self.applyAttributes(StringAttribute.font(font).attribute)
         return self
     }
     
-    @discardableResult func applyTextColor(_ color: UIColor) -> NSMutableAttributedString {
+    @discardableResult public func applyTextColor(_ color: UIColor) -> NSMutableAttributedString {
         self.applyAttributes(StringAttribute.textColor(color).attribute)
         return self
     }
     
-    @discardableResult func applyAttributes(_ attributes: [NSAttributedStringKey: Any]) -> NSMutableAttributedString {
+    @discardableResult public func applyAttributes(_ attributes: [NSAttributedStringKey: Any]) -> NSMutableAttributedString {
         self.addAttributes(attributes, range: self.string.nsRange)
         return self
     }
@@ -45,7 +45,7 @@ public enum StringAttribute {
     case font(UIFont)
     case textColor(UIColor)
     
-    var attribute: [NSAttributedStringKey: Any] {
+    public  var attribute: [NSAttributedStringKey: Any] {
         switch self {
         case let .font(font):
             return [NSAttributedStringKey.font: font]
