@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIColor {
-    public convenience init(hex: Int32, alpha: Int8 = Int8(0xFF)) {
+    public convenience init(hex: UInt32, alpha: UInt8 = 0xFF) {
         var mutableHex = hex
         
         let blue = CGFloat(mutableHex & 0xFF) / 255.0
