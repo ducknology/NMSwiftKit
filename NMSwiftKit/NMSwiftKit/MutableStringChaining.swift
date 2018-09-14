@@ -41,7 +41,7 @@ public extension NSMutableAttributedString {
     }
     
     @discardableResult public func applyLineSpacing(_ spacing: CGFloat) -> NSMutableAttributedString {
-        self.applyAttributes(StringAttribute.lineSpacing(1.5))
+        self.applyAttributes(StringAttribute.lineSpacing(spacing))
         return self
     }
     
