@@ -52,15 +52,15 @@ public extension NSMutableAttributedString {
 }
 
 public struct StringAttribute {
-    static func font(_ font: UIFont) -> [NSAttributedStringKey: Any] {
+    static public func font(_ font: UIFont) -> [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.font: font]
     }
 
-    static func textColor(_ color: UIColor) -> [NSAttributedStringKey: Any] {
+    static public func textColor(_ color: UIColor) -> [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.foregroundColor: color]
     }
     
-    static func lineSpacing(_ linSpacing: CGFloat) -> [NSAttributedStringKey: Any] {
+    static public func lineSpacing(_ linSpacing: CGFloat) -> [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.paragraphStyle: {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = linSpacing
