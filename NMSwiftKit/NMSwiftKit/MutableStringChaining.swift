@@ -51,6 +51,12 @@ public extension NSMutableAttributedString {
     }
 }
 
+public extension Dictionary where Element == (key: NSAttributedStringKey, value: Any) {
+    public static func + (lhs: [NSAttributedStringKey: Any], rhs: [NSAttributedStringKey: Any]) -> [NSAttributedStringKey: Any] {
+        return lhs.merging(rhs, uniquingKeysWith: {$1})
+    }
+}
+
 public struct StringAttribute {
     static public func font(_ font: UIFont) -> [NSAttributedStringKey: Any] {
         return [NSAttributedStringKey.font: font]
