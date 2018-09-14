@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74407DF3214B901E00CD322C /* UIColor+HexInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74407DF2214B901E00CD322C /* UIColor+HexInt.swift */; };
 		745A5CF7214A4EC800487BE9 /* MutableStringChaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745A5CF6214A4EC800487BE9 /* MutableStringChaining.swift */; };
 		749BDCDE21423408008CE7CE /* NMSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 749BDCDC21423408008CE7CE /* NMSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74407DF2214B901E00CD322C /* UIColor+HexInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexInt.swift"; sourceTree = "<group>"; };
 		745A5CF6214A4EC800487BE9 /* MutableStringChaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableStringChaining.swift; sourceTree = "<group>"; };
 		749BDCD921423408008CE7CE /* NMSwiftKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NMSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		749BDCDC21423408008CE7CE /* NMSwiftKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMSwiftKit.h; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 				749BDCDC21423408008CE7CE /* NMSwiftKit.h */,
 				749BDCDD21423408008CE7CE /* Info.plist */,
 				745A5CF6214A4EC800487BE9 /* MutableStringChaining.swift */,
+				74407DF2214B901E00CD322C /* UIColor+HexInt.swift */,
 			);
 			path = NMSwiftKit;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				745A5CF7214A4EC800487BE9 /* MutableStringChaining.swift in Sources */,
+				74407DF3214B901E00CD322C /* UIColor+HexInt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
