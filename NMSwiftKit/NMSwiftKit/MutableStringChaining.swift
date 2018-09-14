@@ -26,17 +26,22 @@ public extension NSAttributedString {
 
 public extension NSMutableAttributedString {
     @discardableResult public func applyFont(_ font: UIFont) -> NSMutableAttributedString {
-        self.applyAttributes(StringAttribute.font(font).attribute)
+        self.applyAttributes(StringAttribute.font(font))
         return self
     }
     
     @discardableResult public func applyTextColor(_ color: UIColor) -> NSMutableAttributedString {
-        self.applyAttributes(StringAttribute.textColor(color).attribute)
+        self.applyAttributes(StringAttribute.textColor(color))
         return self
     }
     
     @discardableResult public func applyAttributes(_ attributes: [NSAttributedStringKey: Any]) -> NSMutableAttributedString {
         self.addAttributes(attributes, range: self.string.nsRange)
+        return self
+    }
+    
+    @discardableResult public func applyLineSpacing(_ spacing: CGFloat) -> NSMutableAttributedString {
+        self.applyAttributes(StringAttribute.lineSpacing(1.5))
         return self
     }
     
@@ -46,16 +51,20 @@ public extension NSMutableAttributedString {
     }
 }
 
-public enum StringAttribute {
-    case font(UIFont)
-    case textColor(UIColor)
+public struct StringAttribute {
+    static func font(_ font: UIFont) -> [NSAttributedStringKey: Any] {
+        return [NSAttributedStringKey.font: font]
+    }
+
+    static func textColor(_ color: UIColor) -> [NSAttributedStringKey: Any] {
+        return [NSAttributedStringKey.foregroundColor: color]
+    }
     
-    public var attribute: [NSAttributedStringKey: Any] {
-        switch self {
-        case let .font(font):
-            return [NSAttributedStringKey.font: font]
-        case let .textColor(color):
-            return [NSAttributedStringKey.foregroundColor: color]
-        }
+    static func lineSpacing(_ linSpacing: CGFloat) -> [NSAttributedStringKey: Any] {
+        return [NSAttributedStringKey.paragraphStyle: {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = linSpacing
+            return paragraphStyle
+        }()]
     }
 }
