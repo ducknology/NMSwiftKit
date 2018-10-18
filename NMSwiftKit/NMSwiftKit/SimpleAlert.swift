@@ -10,7 +10,7 @@ import UIKit
 
 struct SimpleAlert {
     static let instance = SimpleAlert()
-    var parentViewControllerFactory: (() -> UIViewController)?
+    var parentViewControllerFactory: (() throws -> UIViewController)?
     var confirmActionFactory = {() -> UIAlertAction in
         return UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
     }
@@ -24,13 +24,16 @@ struct SimpleAlert {
     }
     
     func alert(title: String?, message: String?, parrentViewController: UIViewController? ) {
-        guard let targetViewController = parrentViewController ?? self.parentViewControllerFactory?() else {
-            return
-        }
-        
-        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        controller.addAction(self.confirmActionFactory())
-        
-        targetViewController.present(targetViewController, animated: true, completion: nil)
+        do {
+            let parentFromFactory = try self.parentViewControllerFactory?()
+            guard let targetViewController = parrentViewController ?? parentFromFactory else {
+                return
+            }
+            
+            let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            controller.addAction(self.confirmActionFactory())
+            
+            targetViewController.present(targetViewController, animated: true, completion: nil)
+        } catch {}
     }
 }
