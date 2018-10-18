@@ -19,7 +19,7 @@ public class SimpleAlert {
         return UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
     }
     
-    public func alert(title: String?, message: String?, parrentViewController: UIViewController? ) {
+    public func alert(title: String?, message: String?, parrentViewController: UIViewController? = nil) {
         do {
             let parentFromFactory = try self.parentViewControllerFactory?()
             guard let targetViewController = parrentViewController ?? parentFromFactory else {
@@ -29,7 +29,7 @@ public class SimpleAlert {
             let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
             controller.addAction(self.confirmActionFactory())
             
-            targetViewController.present(targetViewController, animated: true, completion: nil)
+            targetViewController.present(controller, animated: true, completion: nil)
         } catch {}
     }
 }
