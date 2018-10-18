@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct SimpleAlert {
+public class SimpleAlert {
     public enum AlertError: Error {
         case noParentViewController
     }
@@ -17,14 +17,6 @@ public struct SimpleAlert {
     public var parentViewControllerFactory: (() throws -> UIViewController)?
     public var confirmActionFactory = {() -> UIAlertAction in
         return UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-    }
-    
-    public mutating func setDefaultParentFactory(_ factory: @escaping () -> UIViewController) {
-        self.parentViewControllerFactory = factory
-    }
-    
-    public mutating func setDefaultConfirmActionFactory(_ factory: @escaping () -> UIAlertAction ) {
-        self.confirmActionFactory = factory
     }
     
     public func alert(title: String?, message: String?, parrentViewController: UIViewController? ) {
