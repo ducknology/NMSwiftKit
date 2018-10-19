@@ -16,6 +16,8 @@ public extension UIView {
     }
     
     @discardableResult public func expandToMatchSuperview() -> [NSLayoutConstraint] {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         var constraints = [NSLayoutConstraint]()
         
         guard let superview = self.superview else {
