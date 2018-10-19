@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension UIView {
-    @discardableResult func addSubviewAndExpand(_ subview: UIView) -> [NSLayoutConstraint] {
+public extension UIView {
+    @discardableResult public func addSubviewAndExpand(_ subview: UIView) -> [NSLayoutConstraint] {
         self.addSubview(subview)
         
         return subview.expandToMatchSuperview()
     }
     
-    @discardableResult func expandToMatchSuperview() -> [NSLayoutConstraint] {
+    @discardableResult public func expandToMatchSuperview() -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         
         guard let superview = self.superview else {
