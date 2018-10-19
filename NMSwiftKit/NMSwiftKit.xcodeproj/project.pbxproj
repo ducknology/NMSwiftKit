@@ -10,6 +10,7 @@
 		74407DF3214B901E00CD322C /* UIColor+HexInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74407DF2214B901E00CD322C /* UIColor+HexInt.swift */; };
 		745A5CF7214A4EC800487BE9 /* MutableStringChaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745A5CF6214A4EC800487BE9 /* MutableStringChaining.swift */; };
 		749BDCDE21423408008CE7CE /* NMSwiftKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 749BDCDC21423408008CE7CE /* NMSwiftKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E031370A2179BCED00D24EA6 /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03137092179BCED00D24EA6 /* UIViewHelper.swift */; };
 		E0937FAD21785346001D8511 /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0937FAC21785346001D8511 /* SimpleAlert.swift */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +20,7 @@
 		749BDCD921423408008CE7CE /* NMSwiftKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NMSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		749BDCDC21423408008CE7CE /* NMSwiftKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMSwiftKit.h; sourceTree = "<group>"; };
 		749BDCDD21423408008CE7CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E03137092179BCED00D24EA6 /* UIViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewHelper.swift; sourceTree = "<group>"; };
 		E0937FAC21785346001D8511 /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +59,7 @@
 				745A5CF6214A4EC800487BE9 /* MutableStringChaining.swift */,
 				74407DF2214B901E00CD322C /* UIColor+HexInt.swift */,
 				E0937FAC21785346001D8511 /* SimpleAlert.swift */,
+				E03137092179BCED00D24EA6 /* UIViewHelper.swift */,
 			);
 			path = NMSwiftKit;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				E0937FAD21785346001D8511 /* SimpleAlert.swift in Sources */,
 				745A5CF7214A4EC800487BE9 /* MutableStringChaining.swift in Sources */,
+				E031370A2179BCED00D24EA6 /* UIViewHelper.swift in Sources */,
 				74407DF3214B901E00CD322C /* UIColor+HexInt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
