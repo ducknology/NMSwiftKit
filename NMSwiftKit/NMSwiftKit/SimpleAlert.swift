@@ -19,17 +19,52 @@ public class SimpleAlert {
         return UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
     }
     
-    public func alert(title: String?, message: String?, parrentViewController: UIViewController? = nil) {
+    public func alert(title: String?, message: String, parrentViewController: UIViewController? = nil) {
+        let parentFromFactory: UIViewController?
+        
         do {
-            let parentFromFactory = try self.parentViewControllerFactory?()
-            guard let targetViewController = parrentViewController ?? parentFromFactory else {
-                return
-            }
-            
-            let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            controller.addAction(self.confirmActionFactory())
-            
-            targetViewController.present(controller, animated: true, completion: nil)
-        } catch {}
+            parentFromFactory = try self.parentViewControllerFactory?()
+        } catch {
+            return
+        }
+        
+        guard let targetViewController = parrentViewController ?? parentFromFactory else {
+            return
+        }
+        
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        controller.addAction(self.confirmActionFactory())
+        
+        targetViewController.present(controller, animated: true, completion: nil)
+    }
+    
+    public func confirmAlert(_ title: String?, message: String, ok: String, cancel: String, action: @escaping (_: Bool) -> Void, parentViewController: UIViewController? = nil) {
+        let parentFromFactory: UIViewController?
+        
+        do {
+            parentFromFactory = try self.parentViewControllerFactory?()
+        } catch {
+            return
+        }
+        
+        guard let targetViewController = parentViewController ?? parentFromFactory else {
+            return
+        }
+        
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        controller.addAction(
+            UIAlertAction(title: ok, style: .default, handler: { _ in
+                action(true)
+            })
+        )
+        
+        controller.addAction(
+            UIAlertAction(title: cancel, style: .cancel, handler: { _ in
+                action(false)
+            })
+        )
+        
+        targetViewController.present(controller, animated: true, completion: nil)
     }
 }
