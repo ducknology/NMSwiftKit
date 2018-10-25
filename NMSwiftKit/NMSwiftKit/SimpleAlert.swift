@@ -38,7 +38,7 @@ public class SimpleAlert {
         targetViewController.present(controller, animated: true, completion: nil)
     }
     
-    public func confirmAlert(_ title: String?, message: String, ok: String, cancel: String, action: @escaping (_: Bool) -> Void, parentViewController: UIViewController? = nil) {
+    public func confirmAlert(title: String?, message: String, ok: String, cancel: String, action: @escaping (_: Bool) -> Void, parentViewController: UIViewController? = nil) {
         let parentFromFactory: UIViewController?
         
         do {
