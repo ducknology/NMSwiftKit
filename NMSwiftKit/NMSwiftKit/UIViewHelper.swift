@@ -55,7 +55,7 @@ public extension UIView {
         return constraints
     }
     
-    public func addSubviewAndHorizonalCenter(_ subview: UIView, _ width: CGFloat, constraintPiorities: UILayoutPriority = .required) {
+    public func addSubviewAndHorizonalCenter(_ subview: UIView, _ ratio: CGFloat, constraintPiorities: UILayoutPriority = .required) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(subview)
@@ -64,7 +64,8 @@ public extension UIView {
                            subview.leftAnchor.constraint(greaterThanOrEqualTo: self.leftAnchor),
                            subview.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor),
                            subview.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                           subview.centerXAnchor.constraint(equalTo: self.centerXAnchor)]
+                           subview.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                           subview.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: ratio)]
         
         constraints.forEach({constraint in
             constraint.priority = constraintPiorities
