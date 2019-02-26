@@ -57,23 +57,23 @@ public extension UIView {
 }
 
 public struct BottomAttachConstraints {
-    let top: NSLayoutConstraint
-    let left: NSLayoutConstraint
-    let right: NSLayoutConstraint
-    let height: NSLayoutConstraint
+    public let top: NSLayoutConstraint
+    public let left: NSLayoutConstraint
+    public let right: NSLayoutConstraint
+    public let height: NSLayoutConstraint
     
-    var all: [NSLayoutConstraint] {
+    public var all: [NSLayoutConstraint] {
         return [self.top, self.left, self.right, self.height]
     }
 }
 
 public struct SideConstrains {
-    let top: NSLayoutConstraint
-    let left: NSLayoutConstraint
-    let right: NSLayoutConstraint
-    let bottom: NSLayoutConstraint
+    public let top: NSLayoutConstraint
+    public let left: NSLayoutConstraint
+    public let right: NSLayoutConstraint
+    public let bottom: NSLayoutConstraint
     
-    var all: [NSLayoutConstraint] {
+    public var all: [NSLayoutConstraint] {
         return [self.top, self.left, self.right, self.bottom]
     }
 }
